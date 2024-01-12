@@ -7,7 +7,7 @@ function Course() {
 let {courseId} = useParams();
 const [course, setCourse] = useState([]);
 useEffect(() => {
-    fetch(`http://localhost:3000/admin/courses/${courseId}`, {
+    fetch(`https://course-selling-app-jsxa.onrender.com/admin/courses/${courseId}`, {
         method: 'GET',
         headers: {
             "Content-type" : "application/json",
@@ -54,7 +54,7 @@ function UpdateCard(proms) {
     
     async function handleClick () {
         
-        await fetch(`http://localhost:3000/admin/courses/${proms.courseId}`, {
+        await fetch(`https://course-selling-app-jsxa.onrender.com/admin/courses/${proms.courseId}`, {
         method : "PUT",
         body : JSON.stringify({
             title: title,

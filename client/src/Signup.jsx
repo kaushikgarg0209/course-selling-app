@@ -7,14 +7,14 @@ function Signup() {
     const [password,setPassword]=useState("")
     const navigate = useNavigate()
     async function handleClick () {
-        const res = await axios.post('http://localhost:3000/admin/signup', {
+        const res = await axios.post('https://course-selling-app-jsxa.onrender.com/admin/signup', {
             username : userName,
             password : password
         })
         let data = res.data;
         localStorage.setItem('token', data.token);
         if (data.token){
-            window.location = '/addcourse'
+            window.location = '/addcoursecd'
         }
     }
     return (

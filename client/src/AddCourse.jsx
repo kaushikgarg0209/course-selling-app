@@ -9,7 +9,7 @@ const AddCourse = () => {
   const [price, setPrice] = useState('');
 
   function handleClick () {
-    fetch('http://localhost:3000/admin/courses', {
+    fetch('https://course-selling-app-jsxa.onrender.com/admin/courses', {
       method : "POST",
       body : JSON.stringify({
         title: title,
