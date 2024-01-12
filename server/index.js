@@ -6,18 +6,8 @@ const userRouter = require("./routes/user");
 
 const app = express();
 
-app.use(cors({
-    origin: '*',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-    optionsSuccessStatus: 204,
-  }));
+app.use(cors());
 
-  app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://course-selling-86cu18ca4-kaushikgarg0209.vercel.app');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
-  });
 
 app.use(express.json());
 
