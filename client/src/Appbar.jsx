@@ -8,10 +8,10 @@ function Appbar(){
     const navigate = useNavigate();
     useEffect(() => {
         fetch('https://course-selling-app-jsxa.onrender.com/admin/me', {
-            crossorigin: true, 
+            
+            mode:'cors',
             headers : {
             "Content-type" : "application/json",
-            'Access-Control-Allow-Origin': '*',
             "authorization" : "Bearer " + localStorage.getItem('token'),
             }
         }).then((res) => res.json()).then((data) => {
