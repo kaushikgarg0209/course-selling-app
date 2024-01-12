@@ -1,0 +1,59 @@
+
+.landing-page {
+    background-color: #f0f0f0; /* Gray background */
+    color: #333; /* Dark text color */
+    padding: 40px;
+    text-align: center;
+  }
+  
+  header {
+    margin-bottom: 40px;
+  }
+  
+  header h1 {
+    font-size: 2.5em;
+  }
+  
+  header p {
+    font-size: 1.2em;
+    color: #555;
+  }
+  
+  .features {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 60px;
+  }
+  
+  .feature {
+    max-width: 300px;
+  }
+  
+  h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 1.1em;
+    color: #666;
+  }
+  
+  .cta {
+    background-color: #ddd; /* Light gray background for the CTA section */
+    padding: 40px;
+  }
+  
+  button {
+    background-color: #333; /* Dark gray button */
+    color: #fff; /* White text color */
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #555; /* Darker gray on hover */
+  }
+  
