@@ -7,7 +7,7 @@ function Signup() {
     const [password,setPassword]=useState("")
     const navigate = useNavigate()
     async function handleClick () {
-        const res = await axios.post('http://localhost:3000/admin/signup', {
+        const res = await axios.post('https://course-selling-app-6l4t.onrender.com/admin/signup', {
             username : userName,
             password : password
         })

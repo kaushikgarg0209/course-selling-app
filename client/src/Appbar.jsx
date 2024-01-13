@@ -7,7 +7,7 @@ function Appbar(){
     const [user, setUser] = useState(null)
     const navigate = useNavigate();
     useEffect(() => {
-        fetch('http://localhost:3000/admin/me', {
+        fetch('https://course-selling-app-6l4t.onrender.com/admin/me', {
             headers : {
             "Content-type" : "application/json",
             "authorization" : "Bearer " + localStorage.getItem('token'),
