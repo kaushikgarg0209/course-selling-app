@@ -7,8 +7,7 @@ function Appbar(){
     const [user, setUser] = useState(null)
     const navigate = useNavigate();
     useEffect(() => {
-        fetch('https://course-selling-app-jsxa.onrender.com/admin/me', {
-            mode : 'no-cors',
+        fetch('http://localhost:3000/admin/me', {
             headers : {
             "Content-type" : "application/json",
             "authorization" : "Bearer " + localStorage.getItem('token'),

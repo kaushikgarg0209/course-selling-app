@@ -6,7 +6,7 @@ function Courses() {
     
     const [courses, setCourses] = useState([]);
     useEffect(() => {
-        fetch('https://course-selling-app-jsxa.onrender.com/admin/courses', {
+        fetch('http://localhost:3000/admin/courses', {
             method: 'GET',
             headers: {
                 "Content-type" : "application/json",
@@ -50,7 +50,7 @@ function Course(proms)
     <Button variant='contained' onClick={() => {navigate(`/course/${proms.course._id}`)}}>Edit</Button>
     <Button variant='contained' onClick={() => {
         
-        fetch(`https://course-selling-app-jsxa.onrender.com/admin/courses/${proms.course._id}`, {
+        fetch(`http://localhost:3000/admin/courses/${proms.course._id}`, {
             method : 'DELETE',
             headers: {
                 "Content-type" : "application/json",
