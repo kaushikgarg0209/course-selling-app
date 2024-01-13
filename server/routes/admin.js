@@ -11,7 +11,6 @@ router.get('/me', authenticateJwt,async (req, res) => {
   if (req.user){
     // console.log(req.user.username)
     const user = await Admin.findOne({username : req.user.username})
-    console.log(user)
     res.status(200).json({username: req.user.username, userId: user._id})
   }else{
     res.status(403).json({message: 'Admin does not exist'})
