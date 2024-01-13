@@ -8,6 +8,7 @@ function Appbar(){
     const navigate = useNavigate();
     useEffect(() => {
         fetch('https://course-selling-app-jsxa.onrender.com/admin/me', {
+            mode : 'no-cors',
             headers : {
             "Content-type" : "application/json",
             "authorization" : "Bearer " + localStorage.getItem('token'),
