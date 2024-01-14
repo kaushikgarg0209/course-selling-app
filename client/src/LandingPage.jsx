@@ -31,8 +31,9 @@ const LandingPage = () => {
         <p>Explore our courses and enhance your skills.</p>
         <button>Get Started</button>
       </section>
-      <div className='pt-24'>
+      <div className='pt-24 space-x-20'>
       <Button onClick={() => {navigate('/addcourse')}}>ADD YOUR COURSE</Button>
+      <Button onClick={() => {navigate('/admincourses')}}>SEE YOUR COURSES</Button>
       </div>
     </div>
   );

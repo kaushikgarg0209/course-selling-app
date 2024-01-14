@@ -6,6 +6,7 @@ function Appbar(){
 
     const [user, setUser] = useState(null)
     const navigate = useNavigate();
+    const token = localStorage.getItem('token');
     useEffect(() => {
         fetch('https://course-selling-app-6l4t.onrender.com/admin/me', {
             headers : {
@@ -16,7 +17,7 @@ function Appbar(){
             localStorage.setItem('userId', data.userId)
             setUser(data.username)
         })
-    }, [])
+    }, [token])
 
 
     return(

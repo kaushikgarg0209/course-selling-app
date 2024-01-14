@@ -8,6 +8,7 @@ import AddCourse from './AddCourse'
 import Courses from './Courses'
 import Course from './Course'
 import LandingPage from './LandingPage'
+import AdminCourses from './AdminCourses'
 
 function App() {
   
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/signin" element={<Signin />} />
                 <Route path="/courses" element={<Courses />} />
+                <Route path="/admincourses" element={<AdminCourses />} />
                 <Route path="/course/:courseId" element={<Course />} />
             </Routes>
       </Router>

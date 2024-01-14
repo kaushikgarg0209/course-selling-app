@@ -2,8 +2,7 @@ import { Button, Card, Typography, containerClasses } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-function Courses() {
-    
+const AdminCourses = () => {
     const [courses, setCourses] = useState([]);
     useEffect(() => {
         fetch('https://course-selling-app-6l4t.onrender.com/admin/courses', {
@@ -13,8 +12,11 @@ function Courses() {
                 "authorization" : "Bearer " + localStorage.getItem('token'),
             }
         }).then((respond) => respond.json()).then((data) => {
-            // console.log(data.courses)
-            setCourses(data.courses);
+            console.log(data.courses)
+            const filteredCourses = data.courses.filter((course) => {
+                return course.adminId == localStorage.getItem('userId')
+            })
+            setCourses(filteredCourses);
         })
     }, [courses])
 
@@ -36,20 +38,6 @@ function Courses() {
 
 function Course(proms)
 {
-    const [user, setUser] = useState(null);
-    useEffect(() => {
-        fetch('https://course-selling-app-6l4t.onrender.com/admin/adminName',{
-            method : 'GET',
-            headers : {
-                "adminId": proms.adminId,
-                "Content-type" : "application/json",
-                "authorization" : "Bearer " + localStorage.getItem('token'),
-            }
-        }).then((res) => res.json).then((data) => {
-            console.log(data)
-            setUser(data.username)
-        })
-    }, [])
     const navigate = useNavigate();
     return <div>
     <Card className=' w-96 min-h-80 m-14 p-3'>
@@ -58,18 +46,30 @@ function Course(proms)
     <div className='flex justify-center'> <img className="items-center h-32" src={proms.course.imageLink}></img> </div>
     <div className='m-6'> <Typography textAlign={'center'}>{proms.course.description}</Typography> </div>
     <div className='flex justify-between pl-24 pr-24 pt-2 pb-5'>
-    
+    <Button variant='contained' onClick={() => {navigate(`/course/${proms.course._id}`)}}>Edit</Button>
+    <Button variant='contained' onClick={() => {
+        
+        fetch(`https://course-selling-app-6l4t.onrender.com/admin/courses/${proms.course._id}`, {
+            method : 'DELETE',
+            headers: {
+                "Content-type" : "application/json",
+                "authorization" : "Bearer " + localStorage.getItem('token'),
+            }
+        }).then((res) => res.json()).then((data) => {
+                if (data.message == 'course deleted successfully')
+                {
+                    alert('course deleted successfully')
+                }
+            })
+    }}>Delete</Button>
     </div>
 
     <div className='flex justify-center m-5 border border-slate-950'>
     Rs. {proms.course.price}
-    </div>
-    <div className='text-right'>
-        -by{user}
     </div>
     </Card>
     <br></br>
     </div>
 }
 
-export default Courses
+export default AdminCourses

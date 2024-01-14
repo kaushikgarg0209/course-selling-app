@@ -17,6 +17,13 @@ router.get('/me', authenticateJwt,async (req, res) => {
   }
 })
 
+router.get('/adminName', authenticateJwt,async (req, res) => {
+  
+    const adminId = await Admin.findOne({_id : req.header.id})
+    if (adminId) res.json({username: req.user.username})
+    else res.json({username : null})
+})
+
 
 router.post('/signup', async (req, res) => {
 const { username, password } = req.body;
