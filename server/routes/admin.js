@@ -18,8 +18,8 @@ router.get('/me', authenticateJwt,async (req, res) => {
 })
 
 router.get('/adminName', authenticateJwt,async (req, res) => {
-    const adminId = await Admin.findOne({_id : req.headers.adminId})
-    if (adminId) res.json({username: req.user.username})
+    const admin = await Admin.findOne({_id : req.headers.adminid})
+    if (admin) res.json({username: admin.username})
     else res.json({username : null})
 })
 

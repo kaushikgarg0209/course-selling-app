@@ -47,7 +47,8 @@ function Course(proms)
                 "authorization" : "Bearer " + localStorage.getItem('token'),
             }
         }).then((res) => res.json()).then((data) => {
-            console.log(data)
+            // console.log(data)
+            // console.log(proms.course.adminId)
             setUser(data.username)
         })
     }, [])
@@ -67,7 +68,7 @@ function Course(proms)
     Rs. {proms.course.price}
     </div>
     <div className='text-right'>
-        -by{user}
+        -by {user}
     </div>
     </Card>
     <br></br>
