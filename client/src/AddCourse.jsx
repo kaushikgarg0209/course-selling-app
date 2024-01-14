@@ -9,6 +9,15 @@ const AddCourse = () => {
   const [price, setPrice] = useState('');
 
   function handleClick () {
+    if (typeof price != Number)
+    {
+      alert('Enter valid pice format')
+      setTitle('');
+      setDescription('');
+      setImageLink('');
+      setPrice('');
+    }
+    else{
     fetch('https://course-selling-app-6l4t.onrender.com/admin/courses', {
       method : "POST",
       body : JSON.stringify({
@@ -32,6 +41,8 @@ const AddCourse = () => {
       setPrice('');
     })
   }
+  }
+
 
   return (
     <div className='flex flex-col h-screen justify-center items-center'>

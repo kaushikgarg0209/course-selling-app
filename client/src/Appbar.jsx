@@ -46,7 +46,7 @@ function Appbar(){
                 {
                     localStorage.setItem('token', null)
                     localStorage.setItem('userId', null)
-                    navigate('/')
+                    window.location = '/'
                     setUser(null);
                 }
                 else navigate('/signin')

@@ -18,7 +18,7 @@ const LandingPage = () => {
       }).then((res) => res.json()).then((data) => {
           setUser(data.username)
       })
-  }, [token])
+  }, [token, user])
 
   return (
     <div className="landing-page pt-36">
@@ -46,6 +46,7 @@ const LandingPage = () => {
         <button>Get Started</button>
       </section>
       <div className='pt-24 space-x-20'>
+      {user ? <></> : <Button onClick={() => {navigate('/signup')}}>SIGNIN TO ADD YOUR COURSE</Button>}
       {user ? <Button onClick={() => {navigate('/addcourse')}}>ADD YOUR COURSE</Button> : <></>}
       {user ? <Button onClick={() => {navigate('/admincourses')}}>SEE YOUR COURSES</Button> : <></>}
       </div>
