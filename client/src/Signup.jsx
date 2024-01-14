@@ -12,9 +12,9 @@ function Signup() {
             password : password
         })
         let data = res.data;
-        localStorage.setItem('token', data.token);
         if (data.token){
-            window.location = '/addcoursecd'
+            localStorage.setItem('token', data.token);
+            navigate('/')
         }
     }
     return (

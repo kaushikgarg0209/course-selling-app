@@ -23,7 +23,7 @@ function Signin() {
         if (data.token)
         {
             localStorage.setItem('token', data.token);
-            navigate('/addcourse')
+            navigate('/')
         }
     }
     return (

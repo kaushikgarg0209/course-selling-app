@@ -3,9 +3,23 @@ import React from 'react';
 import './LandingPage.css';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 const LandingPage = () => {
-   const navigate = useNavigate();
+  const [user, setUser] = useState(null)
+  const navigate = useNavigate();
+  const token = localStorage.getItem('token');
+  useEffect(() => {
+      fetch('https://course-selling-app-6l4t.onrender.com/admin/me', {
+          headers : {
+          "Content-type" : "application/json",
+          "authorization" : "Bearer " + localStorage.getItem('token'),
+          }
+      }).then((res) => res.json()).then((data) => {
+          setUser(data.username)
+      })
+  }, [token])
+
   return (
     <div className="landing-page pt-36">
       <header>
@@ -32,8 +46,8 @@ const LandingPage = () => {
         <button>Get Started</button>
       </section>
       <div className='pt-24 space-x-20'>
-      <Button onClick={() => {navigate('/addcourse')}}>ADD YOUR COURSE</Button>
-      <Button onClick={() => {navigate('/admincourses')}}>SEE YOUR COURSES</Button>
+      {user ? <Button onClick={() => {navigate('/addcourse')}}>ADD YOUR COURSE</Button> : <></>}
+      {user ? <Button onClick={() => {navigate('/admincourses')}}>SEE YOUR COURSES</Button> : <></>}
       </div>
     </div>
   );
