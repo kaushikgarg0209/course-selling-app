@@ -36,21 +36,23 @@ function Courses() {
 
 function Course(proms)
 {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(null); 
+    // console.log(proms.course.adminId)
     useEffect(() => {
         fetch('https://course-selling-app-6l4t.onrender.com/admin/adminName',{
             method : 'GET',
             headers : {
-                "adminId": proms.adminId,
+                "adminId": proms.course.adminId,
                 "Content-type" : "application/json",
                 "authorization" : "Bearer " + localStorage.getItem('token'),
             }
-        }).then((res) => res.json).then((data) => {
+        }).then((res) => res.json()).then((data) => {
             console.log(data)
             setUser(data.username)
         })
     }, [])
     const navigate = useNavigate();
+    
     return <div>
     <Card className=' w-96 min-h-80 m-14 p-3'>
     <Typography textAlign={'center'} variant='h6'>{proms.course.title}</Typography>
