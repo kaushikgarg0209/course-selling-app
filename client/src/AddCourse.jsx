@@ -9,7 +9,7 @@ const AddCourse = () => {
   const [price, setPrice] = useState('');
 
   function handleClick () {
-    if (typeof price != Number)
+    if (price.match(/^[0-9]+$/) == null)
     {
       alert('Enter valid pice format')
       setTitle('');
